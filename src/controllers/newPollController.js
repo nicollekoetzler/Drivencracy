@@ -54,5 +54,4 @@ export async function getPoll(req, res){
         console.log(err)
         res.sendStatus(500)
     }
-
 }

@@ -4,6 +4,8 @@ import cors from "cors";
 
 import newPollRouter from "../src/routers/newPollRouter.js"
 import pollChoiceRouter from "../src/routers/pollChoiceRouter.js"
+import voteRouter from "../src/routers/voteRouter.js"
+import resultRouter from "../src/routers/resultRouter.js"
 
 dotenv.config();
 
@@ -12,6 +14,8 @@ app.use(cors());
 app.use(express.json());
 app.use(newPollRouter);
 app.use(pollChoiceRouter);
+app.use(voteRouter);
+app.use(resultRouter);
 
 
 app.listen(process.env.PORT, () => {

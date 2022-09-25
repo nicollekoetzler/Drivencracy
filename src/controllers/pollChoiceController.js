@@ -38,7 +38,7 @@ export async function createPollChoice(req, res){
         const dateDifference = date.diff( isPollExistent.expireAt, "day")
 
         if (dateDifference > 0){
-            return res.status(403).send("enquete expirada.")
+            return res.status(403).send("Enquete expirada.")
         }
 
         await db.collection("choice").insertOne(choiceData);

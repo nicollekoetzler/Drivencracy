@@ -50,3 +50,25 @@ export async function createPollChoice(req, res){
     }
 
 }
+
+export async function getChoice(req, res){
+
+    try{
+
+        const id = req.params.id;
+
+        const isPollExistent = await db.collection("poll").findOne({ _id: ObjectId(id)});
+
+        if(!isPollExistent){
+            return res.status(404).send("Enquete não encontrada.");
+        }
+        
+        const choices = await db.collection("choice").find({ pollId: id }).toArray()
+
+        res.status(200).send(choices);
+
+    } catch (err){
+        console.log(err)
+        res.sendStatus(500)
+    }
+}

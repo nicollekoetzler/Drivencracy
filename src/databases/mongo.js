@@ -3,15 +3,16 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const mongoClient = new MongoClient(process.env.MONGODB_URL);
+let mongoClient
 let db;
 
 try {
-    await mongoClient.connect();
-    db = mongoClient.db(process.env.DATABASE);
+    mongoClient = new MongoClient(process.env.MONGODB_URL);
     
-} catch (error) {
-    console.log(error);
+    await mongoClient.connect()
+    db = mongoClient.db(process.env.DATABASE)
+}catch{
+    console.log("problem to connect to the database")
 }
 
 export default db

@@ -2,10 +2,10 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import newPollRouter from "../src/routers/newPollRouter.js"
-import pollChoiceRouter from "../src/routers/pollChoiceRouter.js"
-import voteRouter from "../src/routers/voteRouter.js"
-import resultRouter from "../src/routers/resultRouter.js"
+import newPollRouter from "./routers/newPollRouter.js"
+import pollChoiceRouter from "./routers/pollChoiceRouter.js"
+import voteRouter from "./routers/voteRouter.js"
+import resultRouter from "./routers/resultRouter.js"
 
 dotenv.config();
 

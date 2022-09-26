@@ -7,6 +7,12 @@ export async function getResult (req, res){
 
         const id = req.params.id;
 
+        const isPollExistent = await db.collection("poll").findOne({ _id: ObjectId(id)});
+
+        if(!isPollExistent){
+            return res.status(404).send("Enquete não encontrada.");
+        }
+
         const poll = await db.collection("poll").findOne({ _id: ObjectId(id) });
 
         const options = await db.collection("choice").find({ pollId: id }).toArray()
